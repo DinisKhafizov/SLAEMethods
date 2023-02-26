@@ -8,7 +8,7 @@
 
 
 
-std::vector<double> Progonka(TridiagonalMatrix Matrix, std::vector<double> D) 
+std::vector<double> Progonka(TridiagonalMatrix &Matrix, std::vector<double> &D) 
 {
     std::vector<double> x, p, q;
     double denom;
