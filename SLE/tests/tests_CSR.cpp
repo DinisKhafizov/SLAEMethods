@@ -2,6 +2,7 @@
 #include "CSR/MatrixOnCSR.hpp"
 
 
+
 TEST(csr, op_skobki1) {
     std::vector<double> values = {1.};
     std::vector<int> cols = {0};
