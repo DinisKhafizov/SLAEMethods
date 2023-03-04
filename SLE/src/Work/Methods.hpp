@@ -1,6 +1,7 @@
 #ifndef ITER_METHODS
 #define ITER_METHODS
 
+
 #include <iostream>
 #include <cmath>
 #include "CSR/MatrixOnCSR.hpp"
