@@ -12,23 +12,13 @@ class CSR {
 	std::vector<int> cols;
 	std::vector<int> rows;
 public:
-	CSR(const int n, const int m) {
-		std::vector<double> val(m * n);
-		values = val;
-		cols = {0};
-		rows = {0};
- 		ROWS = m;
-		COLS = n;
-		
-	}
-	CSR(const std::vector<double> &val, const std::vector<int> &col, const std::vector<int> &row, const int Ncols) {
-		values = val;
-		cols = col;
-		rows = row;
-		ROWS = size(rows) - 1;
-		COLS = Ncols;
-	}
-
+	CSR(const int n, const int m): ROWS{m}, COLS{n}, values(m * n), cols(0), rows(1, 0) 
+	{} 
+	
+	CSR(const std::vector<double> &val, const std::vector<int> &col, const std::vector<int> &row, const int Ncols)
+	:values{val}, cols{col}, rows{row}, ROWS{size(row) - 1}, COLS{Ncols} 
+	{}
+	
 	double operator()(int i, int j) const { //Nahojdenie
 		for(int k = rows[i]; k < rows[i + 1]; ++k) {
 			if (cols[k] == j) {
@@ -54,6 +44,15 @@ public:
 	}
 	int GetN() {
 		return ROWS;
+	}
+	std::vector<double> &GetVal() {
+		return values;
+	}
+	std::vector<int> &GetRow() {
+		return rows;
+	}
+	std::vector<int> &GetCol() {
+		return cols;
 	}
 	
 };
